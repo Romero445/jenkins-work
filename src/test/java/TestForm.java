@@ -43,6 +43,6 @@ public class TestForm {
         $("[class=react-datepicker__month-select]").selectOptionByValue("8");
         $("[class=react-datepicker__year-select").selectOption("1990");
         $(".react-datepicker__day--013").click();
-        $("#uploadPicture").uploadFile(new File(("src/test/resources/Pictest.png")));
+        //$("#uploadPicture").uploadFile(new File(("src/test/resources/Pictest.png")));
     }
 }
