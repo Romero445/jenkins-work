@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
 
+import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -25,7 +25,11 @@ public class TestForm {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        String login = System.getProperty("login");
+        String password = System.getProperty("password");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.remote = "https://" + login + ":" + password + "@" + System.getProperty("remoteBrowser");
         Configuration.baseUrl = "https://demoqa.com";
     }
 
@@ -60,7 +64,11 @@ public class TestForm {
             $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
             $("#react-select-4-input").setValue("Agra").pressEnter();
             $x("//textarea[@placeholder='Current Address']").setValue("USSR");
-
+        });
+        step("Проверяем, то что поля last name, first name, user number заполнены", () -> {
+            $("#firstName").shouldHave(value("Boris"));
+            $("#lastName").shouldHave(value("Britva"));
+            $("#userNumber").shouldHave(value("8999818907"));
         });
 
     }
