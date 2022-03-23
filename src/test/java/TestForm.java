@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
@@ -28,7 +27,6 @@ public class TestForm {
 
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.remote = "https://" + login + ":" + password + "@" + System.getProperty("remoteBrowser");
         Configuration.baseUrl = "https://demoqa.com";
     }
