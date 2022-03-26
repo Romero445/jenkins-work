@@ -20,14 +20,14 @@ public class TestForm {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.browserSize = "1920x1080";
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
-
-        String login = System.getProperty("login");
-        String password = System.getProperty("password");
-        Configuration.remote = "https://" + login + ":" + password + "@" + System.getProperty("remoteBrowser");
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//        Configuration.browserCapabilities = capabilities;
+//
+//        String login = System.getProperty("login");
+//        String password = System.getProperty("password");
+//        Configuration.remote = "https://" + login + ":" + password + "@" + System.getProperty("remoteBrowser");
         Configuration.baseUrl = "https://demoqa.com";
     }
 
